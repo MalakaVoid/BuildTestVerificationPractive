@@ -1,5 +1,6 @@
 from pydantic import BaseModel, PositiveInt
 from typing import List
+from functools import wraps
 
 
 class Ingredient(BaseModel):
@@ -19,11 +20,27 @@ class Recipe(BaseModel):
                            for name, raw_weight, weight, amount, cost in ingredients]
         super().__init__(name=name, ingredients=new_ingredients)
 
+    @staticmethod
+    def validate_portions(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            portions = kwargs.get('portions', args[1] if len(args) > 1 else None)
+            if not isinstance(portions, int) or portions <= 0:
+                raise ValueError("Порции должны быть положительным целым числом!")
+            return func(*args, **kwargs)
+
+        return wrapper
+
+    @validate_portions
     def calc_cost(self, portions=1):
         total_cost = sum(item.cost * item.amount for item in self.ingredients)
         return total_cost * portions
 
+    @validate_portions
     def calc_weight(self, portions=1, raw=False):
+        if not isinstance(raw, bool):
+            raise ValueError("Атрибут raw должен быть булевым значением!")
+
         if raw:
             return sum(item.raw_weight * item.amount for item in self.ingredients) * portions
 
