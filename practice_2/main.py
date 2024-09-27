@@ -24,7 +24,7 @@ class Recipe(BaseModel):
     def validate_portions(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            portions = kwargs.get('portions', args[1] if len(args) > 1 else None)
+            portions = kwargs.get('portions', args[1] if len(args) > 1 else 1)
             if not isinstance(portions, int) or portions <= 0:
                 raise ValueError("Порции должны быть положительным целым числом!")
             return func(*args, **kwargs)
