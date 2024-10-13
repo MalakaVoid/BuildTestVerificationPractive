@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block maintitle %}
+ {{recipe.name}}
+{% endblock %}
+
+{% block content %}
+ <div>Описание рецепта с id = {{recipe.id}}</div>
+ <h3 class="mt-4">Ингредиенты</h3>
+ <ul class="list-group">
+  {% for ingredient in recipe.ingredients %}
+  <li class="list-group-item p-1">{{ingredient.name}} - {{ingredient.weight}} г.</li>
+  {% endfor %}
+ </ul>
+{% endblock %}

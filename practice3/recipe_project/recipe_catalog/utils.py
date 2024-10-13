@@ -12,13 +12,14 @@ class Ingredient(BaseModel):
 
 
 class Recipe(BaseModel):
+    id: int
     name: str
     ingredients: List[Ingredient]
 
     def __init__(self, recipe_info):
         new_ingredients = [Ingredient(name=name, raw_weight=raw_weight, weight=weight, amount=amount, cost=cost)
                            for name, raw_weight, weight, amount, cost in recipe_info['ingredients']]
-        super().__init__(name=recipe_info['name'], ingredients=new_ingredients)
+        super().__init__(id=recipe_info['id'], name=recipe_info['name'], ingredients=new_ingredients)
 
     @staticmethod
     def validate_portions(func):
@@ -50,23 +51,11 @@ class Recipe(BaseModel):
         return self.name
 
 
-if __name__ == '__main__':
-
-    receipt_from_api = {
-        'name': 'Азу',
-        'ingredients': [
-            ('Говядина', 150, 125, 2, 300),
-            ('Картофель', 80, 60, 3, 50),
-            ('Лук репчатый', 80, 60, 1, 30),
-            ('Помидоры', 150, 100, 1, 70),
-            ('Масло сливочное', 150, 50, 1, 90),
-            ('Огурцы', 70, 60, 3, 20)
-        ]
-    }
-
-    receipt = Recipe(receipt_from_api)
-
-    print(f'Рецепт: {str(receipt)}')
-    print(f"Стоимость 1 порции: {receipt.calc_cost()}")
-    print(f"Вес 1 порции: {receipt.calc_weight()}")
-    print(f"Сырой вес 1 порции: {receipt.calc_weight(raw=True)}")
+def find_recipe_by_id(recipe_id, recipes):
+    """
+    :param recipe_id: Recipe
+    :param recipes: List[Recipe]
+    :return: Recipe or None
+    """
+    recipe = next((recipe for recipe in recipes if recipe.id == recipe_id), None)
+    return recipe

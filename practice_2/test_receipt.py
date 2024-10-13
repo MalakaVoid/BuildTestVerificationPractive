@@ -14,9 +14,9 @@ class TestRecipe(unittest.TestCase):
 
     @classmethod
     def setUp(self):
-        self.receipt = Recipe(
-            name="Долма",
-            ingredients=[
+        receipt = {
+            "name": "Долма",
+            "ingredients": [
                 ('Говядина', 100, 83, 1, 150),
                 ('Свинной фарш', 50, 43, 2, 80),
                 ('Репчатый лук', 80, 60, 1, 40),
@@ -24,7 +24,8 @@ class TestRecipe(unittest.TestCase):
                 ('Круглый рис', 100, 80, 1, 40),
                 ('Сыр', 80, 60, 1, 120)
             ]
-        )
+        }
+        self.receipt = Recipe(receipt)
 
     def test_calc_cost(self):
         self.assertEqual(self.receipt.calc_cost(), 590)
