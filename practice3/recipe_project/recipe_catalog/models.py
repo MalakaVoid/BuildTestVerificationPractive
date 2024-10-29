@@ -28,4 +28,7 @@ class RecipeIngredients(models.Model):
     """Recipe = Ingredient model"""
     id = models.AutoField(primary_key=True)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    ingredient = models.ForeignKey(Ingredient, unique=True, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('recipe', 'ingredient')
