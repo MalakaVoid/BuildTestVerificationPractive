@@ -72,7 +72,7 @@ class TestDbCreation(TestCase):
         cls.recipe_test.delete()
 
 
-class ErrorTests(TestCase):
+class TestErrors(TestCase):
     INGREDIENT_NAME = 'TEST'
     INGREDIENT_MEASURING = 'TEST'
     INGREDIENT_COST = 10
@@ -105,7 +105,7 @@ class ErrorTests(TestCase):
             recipe.full_clean()
 
 
-class RecipeIngredientsErrorTests(TestCase):
+class TestRecipeIngredientsError(TestCase):
     def setUp(self):
         """Создаем тестовые данные для ингредиента и рецепта"""
         self.ingredient = Ingredient.objects.create(name="Тест", measuring="грамм", cost=2.0)
@@ -138,6 +138,3 @@ class RecipeIngredientsErrorTests(TestCase):
                 measure_weight=100
             )
             recipe_ingredient.full_clean()
-
-
-
