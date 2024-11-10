@@ -25,11 +25,31 @@ def recipe_details(request, pk):
         raise Http404("Рецепт не найден")
 
     recipe = Recipe.objects.get(pk=pk)
-    ingredients = recipe.ingredients.all()
+    recipe_ingredients = RecipeIngredients.objects.filter(recipe=recipe)
+
+    ingredients_list = [
+        {
+            'id': recipe_ingredient.ingredient.id,
+            'name': recipe_ingredient.ingredient.name,
+            'measuring': recipe_ingredient.ingredient.measuring,
+            'measure': recipe_ingredient.measure,
+            'measure_weight': recipe_ingredient.measure_weight,
+            'cost': recipe_ingredient.measure *
+                    recipe_ingredient.ingredient.cost,
+
+        }
+        for recipe_ingredient in recipe_ingredients
+    ]
+
+    total_cost = sum([ingredient['cost'] for ingredient in ingredients_list])
+    total_weight = sum([ingredient['measure_weight'] * ingredient['measure']
+                      for ingredient in ingredients_list])
 
     context = {
         "recipe": recipe,
-        "recipe_ingredients":ingredients
+        "recipe_ingredients": ingredients_list,
+        "total_cost": total_cost,
+        "total_weight": total_weight
     }
 
     return render(request, RECIPE_TEMPLATE_NAME, context)

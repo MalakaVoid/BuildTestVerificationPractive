@@ -2,15 +2,34 @@
 {% extends 'base.html' %}
 
 {% block maintitle %}
- {{recipe.name}}
+ Рецепт {{recipe.name}}
 {% endblock %}
 
 {% block content %}
- <div>Описание рецепта с id = {{recipe.id}}</div>
+    
+ <p>
+ Полный вес: {{ total_weight}} г. <br>
+ Полная стоимость: {{ total_cost }} руб.
+ </p>
+    
  <h3 class="mt-4">Ингредиенты</h3>
- <ul class="list-group">
+    
+ <table class="table table-bordered mt-4">
+{# <thead>#}
+{#     <tr>#}
+{#         <th>Ингредиент</th>#}
+{#         <th>Вес (г. на 1 шт.)</th>#}
+{#         <th>Стоимость (руб.)</th>#}
+{#         <th>Количество (шт.)</th>#}
+{#    </tr>#}
+{# </thead>#}
   {% for ingredient in recipe_ingredients %}
-  <li class="list-group-item p-1">{{ingredient.name}} - {{ingredient.weight}} г.</li>
+      <tr>
+          <td>{{ingredient.name}}</td>
+          <td>{{ingredient.measure }} {{ingredient.measuring }}</td>
+          <td>{{ingredient.cost }} pуб.</td>
+      </tr>
   {% endfor %}
- </ul>
+ </table>
+<a href="{% url 'main' %}">< Назад</a>
 {% endblock %}
