@@ -2,7 +2,6 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 
-# Create your models here.
 class Ingredient(models.Model):
     """Ingredient model"""
     id = models.AutoField(primary_key=True)
