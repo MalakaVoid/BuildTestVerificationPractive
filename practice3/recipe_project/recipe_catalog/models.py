@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.core.validators import MinValueValidator
 
@@ -17,6 +18,7 @@ class Recipe(models.Model):
     """Recipe model"""
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     ingredients = models.ManyToManyField(Ingredient, through='RecipeIngredients')
 
     def __str__(self):

@@ -1,5 +1,5 @@
 
-{% extends 'base.html' %}
+{% extends '../base.html' %}
 
 {% block maintitle %}
  Рецепт {{recipe.name}}
@@ -31,5 +31,6 @@
       </tr>
   {% endfor %}
  </table>
+    <h3 class="mt-4">Автор рецепта: {{ recipe.author.username }}</h3> 
 <a href="{% url 'main' %}">< Назад</a>
 {% endblock %}
