@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="e25d0993-7db4-417f-9986-5c4a73d8b56d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/tests/test_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/tests/test_content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/tests/test_endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/tests/test_endpoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/recipe_catalog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/recipe_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/recipe_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/templates/recipe_catalog/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/templates/recipe_catalog/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/templates/recipe_catalog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/templates/recipe_catalog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice3/recipe_project/templates/recipe_catalog/recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice3/recipe_project/templates/recipe_catalog/recipe.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +113,8 @@
       <workItem from="1731254929859" duration="4337000" />
       <workItem from="1731259477502" duration="14390000" />
       <workItem from="1731404172857" duration="3000" />
+      <workItem from="1731941949544" duration="34000" />
+      <workItem from="1732209715192" duration="290000" />
     </task>
     <servers />
   </component>
